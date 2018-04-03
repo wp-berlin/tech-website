@@ -24,6 +24,9 @@ web/plugins/redis-cache/
 web/plugins/query-monitor/
 web/plugins/rewrite-rules-inspector/
 
+# dev database
+database/*
+
 # symlinks
 web/assets/db.php
 web/uploads
