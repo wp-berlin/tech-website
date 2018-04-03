@@ -1,0 +1,29 @@
+{
+  "connection": {
+    "type": "mysql",
+    "wp": {
+      "db": "",
+      "user": "",
+      "password": "",
+      "host": "localhost",
+      "charset": "utf8mb4",
+      "collate": "",
+      "tablePrefix": ""
+    }
+  },
+  "keys": {
+    "auth": "",
+    "secure_auth": "",
+    "logged_in": "",
+    "nonce": ""
+  },
+  "salt": {
+    "auth": "",
+    "secure_auth": "",
+    "logged_in": "",
+    "nonce": ""
+  },
+  "url": "",
+  "network": "",
+  "memory": "512M"
+}
