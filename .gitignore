@@ -1,0 +1,39 @@
+*.log
+*.psd
+
+# dep folders
+node_modules/
+/vendor/
+
+# local config
+/config/
+!/config/env/default.json
+
+# wordpress deps
+shared/
+assets/tmp/
+web/wp/
+web/languages/*
+web/plugins/autodescription/
+web/plugins/disable-wordpress-updates/
+web/plugins/no-self-ping/
+web/plugins/redirection/
+web/plugins/redis-cache/
+
+# dev plugins
+web/plugins/query-monitor/
+web/plugins/rewrite-rules-inspector/
+
+# symlinks
+web/assets/db.php
+web/uploads
+
+# ignore translations
+web/assets/languages/
+
+# ignore compiled assets
+web/assets/js/
+web/assets/css/
+
+# overrides
+!.gitkeep
