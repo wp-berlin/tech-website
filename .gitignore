@@ -15,10 +15,7 @@ php-server.pid
 start-server
 
 # wordpress deps
-/shared/
-/assets/tmp/
 /web/wp/
-/web/languages/*
 /web/plugins/autodescription/
 /web/plugins/disable-wordpress-updates/
 /web/plugins/no-self-ping/
@@ -38,11 +35,15 @@ start-server
 /web/uploads
 
 # ignore translations
+/web/languages/
 /web/assets/languages/
 
 # ignore compiled assets
-web/assets/js/
-web/assets/css/
+/web/assets/js/
+/web/assets/css/
+
+# ignore compile tmp folder
+/assets/tmp
 
 # overrides
 !.gitkeep
