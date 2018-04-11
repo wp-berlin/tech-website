@@ -23,6 +23,12 @@
     "logged_in": "",
     "nonce": ""
   },
+  "ghcp": {
+    "webhook_secret": "",
+    "private_key": "",
+    "app_id": 0,
+    "user_agent": ""
+  },
   "url": "",
   "network": "",
   "memory": "512M"
