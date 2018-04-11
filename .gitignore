@@ -7,32 +7,38 @@ node_modules/
 
 # local config
 /config/
+wp-cli.local.yml
 !/config/env/default.json
 
+# Local dev server
+php-server.pid
+start-server
+
 # wordpress deps
-shared/
-assets/tmp/
-web/wp/
-web/languages/*
-web/plugins/autodescription/
-web/plugins/disable-wordpress-updates/
-web/plugins/no-self-ping/
-web/plugins/redirection/
-web/plugins/redis-cache/
+/shared/
+/assets/tmp/
+/web/wp/
+/web/languages/*
+/web/plugins/autodescription/
+/web/plugins/disable-wordpress-updates/
+/web/plugins/no-self-ping/
+/web/plugins/redirection/
+/web/plugins/redis-cache/
+/web/plugins/ghcp/
 
 # dev plugins
-web/plugins/query-monitor/
-web/plugins/rewrite-rules-inspector/
+/web/plugins/query-monitor/
+/web/plugins/rewrite-rules-inspector/
 
 # dev database
-database/*
+/database/*
 
 # symlinks
-web/assets/db.php
-web/uploads
+/web/assets/db.php
+/web/uploads
 
 # ignore translations
-web/assets/languages/
+/web/assets/languages/
 
 # ignore compiled assets
 web/assets/js/
