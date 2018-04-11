@@ -268,13 +268,12 @@ class SQLiteIntegration {
 	 * @return no return values.
 	 */
 	function textdomain_init() {
-		global $utils;
-		//$current_locale = get_locale();
-		//if (!empty($current_locale)) {
-		//  $moFile = dirname(__FILE__) . "/languages/sqlite-wordpress-" . $current_locale . ".mo";
-		//  if(@file_exists($moFile) && is_readable($moFile)) load_textdomain('sqlite-wordpress', $moFile);
-		//}
-		load_plugin_textdomain($utils->text_domain, false, SQLiteDir.'/languages/');
+		$current_locale = get_locale();
+		if (!empty($current_locale)) {
+		  $moFile = dirname(__FILE__) . "/languages/sqlite-wordpress-" . $current_locale . ".mo";
+		  if(@file_exists($moFile) && is_readable($moFile)) load_textdomain('sqlite-wordpress', $moFile);
+		}
+//		load_plugin_textdomain($utils->text_domain, false, SQLiteDir.'/languages/');
 	}
 
 	/**
