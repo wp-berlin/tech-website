@@ -12,7 +12,6 @@ wp-cli.local.yml
 
 # Local dev server
 php-server.pid
-start-server
 
 # wordpress deps
 /web/wp/
