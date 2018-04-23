@@ -21,6 +21,7 @@ php-server.pid
 /web/plugins/redirection/
 /web/plugins/redis-cache/
 /web/plugins/ghcp/
+/web/plugins/sqlite-integration/
 
 # dev plugins
 /web/plugins/query-monitor/
