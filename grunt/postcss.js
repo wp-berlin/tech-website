@@ -3,7 +3,6 @@ module.exports = function (grunt, options) {
         default: {
             options: {
                 processors: [
-                    require('tailwindcss')('./tailwind.js'),
                     require('autoprefixer')({
                         browsers: ['> 1%', 'Last 2 versions']
                     }),
