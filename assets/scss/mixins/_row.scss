@@ -1,0 +1,21 @@
+@mixin row() {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+    width: 100%;
+    max-width: map-get-deep($layout, 'row', 'width');
+    padding: {
+        top: map-get-deep($spacing, 'v', 'default');
+        right: map-get-deep($spacing, 'h', 'default');
+        bottom: map-get-deep($spacing, 'v', 'default');
+        left: map-get-deep($spacing, 'h', 'default');
+    }
+
+    @include media(map-get-deep($layout, 'row', 'width') + 2* map-get-deep($spacing, 'h', 'default')) {
+        padding: {
+            right: 0;
+            left: 0;
+        }
+    }
+}

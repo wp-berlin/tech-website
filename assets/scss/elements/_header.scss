@@ -1,0 +1,96 @@
+.header {
+    align-items: center;
+    background-color: map-get-deep($colors, 'base', 'black');
+    display: flex;
+    flex-flow: column wrap;
+    min-height: calc(170px + 20px + 4vw);
+
+    .js & {
+        margin-bottom: calc(2vw + 30px);
+        min-height: unset;
+        padding-top: 150px;
+
+        @include media((100 / 4) * config('typo', 'intro', 'size')) {
+            margin-bottom: 68px;
+        }
+    }
+
+    &.is-nav-expanded {
+        @include media(0, config('media', 'breakpoints', 'nav', 'inline')) {
+            padding-top: 300px;
+            transition-duration: .3s;
+            min-height: calc(300px + 20px + 4vw);
+
+            .header {
+                &-logo {
+                    background-color: config('colors', 'base', 'black');
+                    transform: translateY(130px);
+                    transition: {
+                        property: transform;
+                        duration: .3s;
+                    }
+                    width: 100%;
+                }
+
+                &-intro {
+                    padding-top: config('spacing', 'small');
+                }
+            }
+        }
+    }
+
+    &-logo {
+        text-align: center;
+
+        svg {
+            width: 150px;
+        }
+
+        .js & {
+            position: fixed;
+            top: config('spacing', 'default');
+            z-index: 2;
+
+            @include media(config('media', 'breakpoints', 'nav', 'inline')) {
+                top: 0;
+            }
+        }
+    }
+
+    &-intro {
+        background-color: config('colors', 'base', 'black');
+        color: map-get-deep($colors, 'typo', 'inverted');
+        padding: {
+            top: config('spacing', 'medium');
+            bottom: config('spacing', 'default');
+        }
+        line-height: 1;
+        font: {
+            size: 4vw;
+            family: config('typo', 'intro', 'family');
+        }
+        text-align: center;
+        width: 100%;
+
+        .js & {
+            position: fixed;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        @include media(config('media', 'breakpoints', 'nav', 'inline')) {
+            padding-top: config('spacing', 'small');
+        }
+
+        @include media((100 / 4) * config('typo', 'intro', 'size')) {
+            font-size: config('typo', 'intro', 'size');
+        }
+
+        &-highlight {
+            color: config('colors', 'toned', 'yellow');
+            transition-duration: .3s;
+        }
+    }
+}
+

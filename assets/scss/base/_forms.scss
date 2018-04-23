@@ -1,0 +1,214 @@
+form {
+    vertical-align: middle;
+}
+
+input,
+button,
+select,
+textarea {
+    background-color: map-get-deep($colors, 'forms', 'bg');
+    border: 1px solid map-get-deep($colors, 'forms', 'border');
+    border-radius: map-get-deep($layout, 'forms', 'border-radius');
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding: {
+        left: map_get-deep($spacing, 'h', 'small');
+        right: map_get-deep($spacing, 'h', 'small');
+    }
+    vertical-align: inherit;
+    appearance: none;
+
+    &.has-error,
+    &.is-error {
+        border-color: map-get-deep($colors, 'forms', 'error');
+        box-shadow: 0 0 5px rgba(map-get-deep($colors, 'forms', 'error'), .75);
+        &:focus {
+            border-color: map-get-deep($colors, 'forms', 'border');
+            box-shadow: none;
+        }
+    }
+}
+
+input,
+button {
+    &[type="search"],
+    &[type="url"],
+    &[type="email"],
+    &[type="password"],
+    &[type="tel"],
+    &[type="number"],
+    &[type="text"],
+    &[type="submit"] {
+        height: map-get-deep($layout, 'button', 'height');
+    }
+    &[type="search"],
+    &[type="url"],
+    &[type="email"],
+    &[type="password"],
+    &[type="tel"],
+    &[type="number"],
+    &[type="text"] {
+        color: map-get-deep($colors, 'forms', 'text');
+
+        &::placeholder {
+            color: map-get-deep($colors, 'forms', 'placeholder');
+        }
+    }
+    &:-webkit-autofill {
+        background-color: map-get-deep($colors, 'forms', 'bg') !important;
+    }
+    &[type="submit"] {
+        @include ctaButton;
+    }
+}
+
+input {
+    &[type="radio"] {
+        @include appearance(radio);
+    }
+    &[type="checkbox"] {
+        @include appearance(checkbox);
+    }
+    //        display: inline-block;
+    //        height: 22px;
+    //        margin-right: map-get-deep($spacing, 'h', 'tiny');
+    //        //opacity: 0;
+    //        outline: none;
+    //        vertical-align: middle;
+    //        width: 22px;
+    //        &:active {
+    //            outline: none;
+    //        }
+    //        &:hover {
+    //            cursor: pointer;
+    //        }
+    //        & ~ .dummy {
+    //            border: 1px solid map-get-deep($colors, 'forms', 'border');
+    //            height: 22px;
+    //            left: 0;
+    //            position: absolute;
+    //            top: 8px;
+    //            width: 22px;
+    //        }
+    //        &:checked {
+    //            & ~ .dummy {
+    //                &:before {
+    //                    content: "";
+    //                    display: block;
+    //                    line-height: 1;
+    //                    position: absolute;
+    //                }
+    //            }
+    //        }
+    //    }
+    //    &[type="radio"] {
+    //        & ~ .dummy {
+    //            border-radius: 50%;
+    //            top: 9px;
+    //            &::before {
+    //                background-color: map-get-deep($colors, 'forms', 'cta');
+    //                border: 1px solid map-get-deep($colors, 'forms', 'cta');
+    //                border-radius: 50%;
+    //                height: 6px;
+    //                left: 7px;
+    //                top: 7px;
+    //                width: 6px;
+    //            }
+    //        }
+    //    }
+    //    &[type="checkbox"] {
+    //        &:checked {
+    //            & ~ .dummy {
+    //                &:before {
+    //                    @include icon('check');
+    //                    color: map-get-deep($colors, 'forms', 'cta');
+    //                    display: block;
+    //                    height: 22px;
+    //                    left: 3px;
+    //                    position: absolute;
+    //                    top: 3px;
+    //                    width: 22px;
+    //                }
+    //            }
+    //        }
+    //    }
+    //    &.is-error {
+    //        border-color: map-get-deep($colors, 'forms', 'cta');
+    //        &:focus {
+    //            border-color: map-get-deep($colors, 'forms', 'border');
+    //        }
+    //        & ~ .dummy {
+    //            border-color: map-get-deep($colors, 'forms', 'cta');
+    //        }
+    //    }
+}
+
+select {
+    background: {
+        color: #fff;
+        image: url("../img/chevron-down.svg");
+        size: 16px;
+        repeat: no-repeat;
+        position: right 12px center;
+    }
+    height: map-get-deep($layout, 'button', 'height');
+    max-width: 100%;
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+textarea {
+    padding: {
+        top: 10px;
+        bottom: 10px;
+    }
+    height: 150px;
+    resize: vertical;
+    &::placeholder {
+        color: map-get-deep($colors, 'forms', 'placeholder');
+    }
+}
+
+label {
+    display: inline-block;
+    line-height: map-get-deep($layout, 'button', 'height');
+    margin-bottom: map-get-deep($spacing, 'default');
+    position: relative;
+    vertical-align: inherit;
+    white-space: pre-line;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button {
+    &.is-waiting {
+        opacity: .8;
+        pointer-events: none;
+        &::after {
+            animation: spin 2s linear infinite;
+            background: {
+                image: url("../img/loading.png");
+                size: cover;
+            }
+            content: "";
+            display: inline-block;
+            height: 20px;
+            margin-left: 15px;
+            opacity: .5;
+            position: absolute;
+            top: 17px;
+            vertical-align: inherit;
+            width: 20px;
+        }
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

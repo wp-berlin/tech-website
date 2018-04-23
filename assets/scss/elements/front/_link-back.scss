@@ -1,0 +1,15 @@
+.link-back {
+    align-items: center;
+    background-color: config('colors', 'toned', 'red');
+    color: config('colors', 'typo', 'inverted');
+    display: flex;
+    height: 6vh;
+    justify-content: center;
+    min-height: 60px;
+    width: 100%;
+
+    &:hover {
+        color: config('colors', 'typo', 'default');
+        transition-duration: .3s;
+    }
+}

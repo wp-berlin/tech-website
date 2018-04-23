@@ -1,0 +1,11 @@
+@mixin sm() {
+    @include media(0, $bp - 1) {
+        @content;
+    }
+}
+
+@mixin lg() {
+    @include media($bp) {
+        @content;
+    }
+}

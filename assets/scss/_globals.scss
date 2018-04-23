@@ -1,0 +1,136 @@
+html,
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    //background-color: #fafafa;
+    font: {
+        size: map-get-deep($typo, 'base', 'size');
+        family: config('typo', 'base', 'family');
+    }
+    line-height: map-get-deep($typo, 'base', 'line-height');
+    color: map-get-deep($colors, 'typo', 'default');
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    &.admin-bar {
+        min-height: calc(100% - 32px);
+        margin-top: 32px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: {
+        weight: 700;
+        family: config('typo', 'heading', 'family');
+    }
+    margin:{
+        top: 1em;
+        bottom: .3em
+    }
+
+    & + p,
+    & + ul,
+    & + ol {
+        margin-top: 0;
+    }
+}
+
+h1 {
+    font-size: rem-calc(32);
+    //@include media(config($media, 'breakpoints', 'default')) {
+    //    font-size: rem-calc(38);
+    //}
+}
+
+h2 {
+    font-size: rem-calc(24);
+    //@include media(config($media, 'breakpoints', 'default')) {
+    //    font-size: rem-calc(28.8);
+    //}
+}
+
+h3 {
+    font-size: rem-calc(22);
+    //@include media(config($media, 'breakpoints', 'default')) {
+    //    font-size: rem-calc(24);
+    //}
+}
+
+h4 {
+    font-size: rem-calc(20);
+}
+
+p,
+ul,
+ol {
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+        margin-top: 0;
+    }
+}
+
+ul,
+ol {
+    //padding-left: config($spacing, 'default') * 2;
+    li {
+        line-height: 1.25;
+        //margin-bottom: config($spacing, 'small');
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+}
+
+
+a {
+    transition-duration: .2s;
+    color: map-get-deep($colors, 'link', 'default');
+
+    &:hover {
+        color: map-get-deep($colors, 'link', 'hover');
+    }
+
+    &:active {
+        color: map-get-deep($colors, 'link', 'active');
+    }
+
+    &:focus {
+        color: map-get-deep($colors, 'link', 'focus');
+    }
+}
+
+article {
+    a {
+        font-weight: 900;
+
+        &:hover {
+            border-bottom: 5px solid map-get-deep($colors, 'base','black');
+        }
+    }
+}
+

@@ -1,0 +1,27 @@
+@mixin grid($pct, $flex: false, $float: left, $position: relative)
+{
+    $width: 0;
+
+    @if (unit($pct) == '%') {
+        $width: $pct;
+    } @else if (unitless($pct)) {
+        @if ($pct > 1 and $pct < 10) {
+            $width: $pct * 10%;
+        } @else if ($pct > 10 and $pct <= 100) {
+            $width: $pct * 1%;
+        } @else if ($pct <= 1) {
+            $width: $pct * 100%;
+        }
+    } @else {
+        @error 'Your grid-width has a falsy unit, please either enter a unitless integer or a percentage value';
+    }
+
+    @if ($flex == false) {
+        width: $width;
+        float: $float;
+    } @else {
+        flex-basis: $width;
+    }
+
+    position: $position;
+}

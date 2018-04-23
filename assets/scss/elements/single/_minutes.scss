@@ -1,0 +1,50 @@
+@import "../../../../node_modules/github-markdown-css/github-markdown";
+
+.markdown-body {
+    pre,
+    .highlight pre {
+        background-color: darken(#f6f8fa, 3);
+    }
+}
+
+.sidebar {
+    &-author {
+        &-single {
+            align-items: center;
+            display: flex;
+            margin-bottom: config('spacing', 'small');
+
+            &-image {
+                border-radius: 3px;
+                height: config('spacing', 'default');
+                width: config('spacing', 'default');
+            }
+
+            &-url {
+                font-weight: bold;
+                padding-left: config('spacing', 'tiny');
+                text-decoration: none;
+            }
+
+            &-name {
+                color: config('colors', 'base', 'grey');
+                padding-left: config('spacing', 'tiny');
+            }
+        }
+    }
+}
+
+@include media(config('media', 'breakpoints', 'default')) {
+    .main-inner {
+        display: flex;
+        justify-content: space-between;
+    }
+    .markdown {
+        &-body {
+            flex: 0 0 calc(75% - #{config('spacing', 'small')});
+        }
+        &-sidebar {
+            flex: 0 0 calc(25% - #{config('spacing', 'small')});
+        }
+    }
+}

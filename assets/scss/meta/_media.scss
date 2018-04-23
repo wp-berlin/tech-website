@@ -1,0 +1,11 @@
+$media: (
+    type: 'media',
+    'breakpoints': (
+        'default': 800,
+        'nav': (
+            'inline': 700,
+            'full': 850,
+            'footer': 500,
+        )
+    ),
+);

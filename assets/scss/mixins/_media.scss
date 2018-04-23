@@ -1,0 +1,43 @@
+@mixin media($width, $upperBound: false) {
+    $remWidth: 0;
+    $upperBoundWidth: 0;
+
+    @if unit($width) == 'px' or unit($width) == '' {
+        $remWidth: rem-calc($width);
+    } @else {
+        $remWidth: $width;
+    }
+
+    @if type_of($upperBound) == number and $upperBound > 0 {
+        @if unit($upperBound) == 'px' or unit($upperBound) == '' {
+            $upperBoundWidth: rem-calc($upperBound);
+        } @else {
+            $upperBoundWidth: $upperBound;
+        }
+    }
+
+
+    @if $upperBoundWidth > 0 {
+        @media only screen and (min-width: #{$remWidth}) and (max-width: #{$upperBoundWidth}) {
+            @content;
+        }
+    } @else {
+        @media only screen and (min-width: #{$remWidth}) {
+            @content;
+        }
+    }
+}
+
+@mixin mobile($width: 800) {
+    $remWidth: 0;
+
+    @if unit($width) == 'px' or unit($width) == '' {
+        $remWidth: rem-calc($width);
+    } @else {
+        $remWidth: $width;
+    }
+
+    @media only screen and (max-width: #{$remWidth}) {
+        @content;
+    }
+}

@@ -1,0 +1,15 @@
+@mixin full-width() {
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+    &-inner {
+        @include row();
+        @include mobile() {
+            padding: {
+                right: 15px;
+                left: 15px;
+            }
+        }
+    }
+}

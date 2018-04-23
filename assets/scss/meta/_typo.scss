@@ -1,0 +1,33 @@
+$typo: (
+    type: 'typo',
+    'base': (
+        'size': 16px,
+        'family': 'Source Sans Pro, sans-serif',
+        'line-height': 1,
+        'weight': normal,
+    ),
+    'heading': (
+        'family': 'Source Sans Pro, sans-serif',
+    ),
+    'title': (
+        'size': 50px,
+        'weight': 900,
+        'line-height': 1.15,
+    ),
+    'intro': (
+        'size': 36px,
+        'family': 'Source Code Pro, monospace',
+    ),
+    'content': (
+        'intro': (
+            'size': 24px,
+        ),
+        'size': 20px,
+    ),
+    'secondary': (
+        'size': 13px,
+    ),
+    'button': (
+        'weight': 400,
+    ),
+);

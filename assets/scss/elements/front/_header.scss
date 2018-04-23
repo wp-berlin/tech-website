@@ -1,0 +1,82 @@
+.header {
+    margin-bottom: 0 !important;
+
+    @include media(config('media', 'breakpoints', 'nav', 'inline')) {
+        padding-top: 100px!important;
+    }
+
+    &-logo {
+        .js & {
+            @include media(config('media', 'breakpoints', 'nav', 'inline')) {
+                position: static;
+
+                svg {
+                    width: 300px;
+                }
+            }
+        }
+    }
+
+    &-intro {
+        .js & {
+            @include media(config('media', 'breakpoints', 'nav', 'inline')) {
+                position: static;
+            }
+        }
+
+        &::after {
+            border: 2px solid config('colors', 'typo', 'inverted');
+            content: "";
+            display: inline-block;
+            height: 3.6vw;
+            max-height: 30px;
+            left: 1%;
+            position: relative;
+            top: .5vw;
+            width: 1.5vw;
+            max-width: 15px;
+
+            @include media(config('media', 'breakpoints', 'default')) {
+                top: 5px;
+            }
+        }
+
+        &.has-cursor {
+            &::after {
+                background-color: config('colors', 'typo', 'inverted');
+                border-color: config('colors', 'typo', 'inverted');
+                opacity: .8;
+                animation: {
+                    name: blink-animation;
+                    duration: 1s;
+                    iteration-count: infinite;
+                }
+                @keyframes blink-animation {
+                    0% {
+                        opacity: 0;
+                    }
+                    40%, 100% {
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-fixed {
+        .header {
+            &-logo {
+                position: fixed;
+                top: 0;
+            }
+            &-intro {
+                position: fixed;
+            }
+        }
+    }
+}
+
+.typed-cursor {
+    color: config('colors', 'typo', 'inverted');
+}
+

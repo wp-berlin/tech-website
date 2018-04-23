@@ -1,0 +1,21 @@
+@mixin defaultHeading() {
+    font: {
+        size: map-get-deep($font, 'headingDefault', 'size');
+        weight: map-get-deep($font, 'headingDefault', 'weight');
+    }
+    line-height: map-get-deep($font, 'headingDefault', 'line');
+}
+
+@mixin widgetHeading() {
+    @include defaultHeading;
+    padding-bottom: map-get-deep($spacing, 'h', 'small');
+    border-bottom: 1px solid map-get-deep($colors, 'lines');
+}
+
+@mixin defaultText() {
+    font: {
+        size: map-get-deep($font, 'defaultText', 'size');
+        weight: map-get-deep($font, 'defaultText', 'weight');
+    }
+    line-height: map-get-deep($font, 'defaultText', 'line');
+}

@@ -1,0 +1,43 @@
+$colors: (
+    type: 'colors',
+    'base': (
+        'white': #fff,
+        'black': #202435,
+        'grey': #586068,
+        'wp': #21759b,
+        'blue': #09394e,
+        'red': #a83445,
+        'yellow': #e7df26,
+    ),
+    'toned': (
+        'yellow': lighten(desaturate(#e7df26, 5), 15),
+        'red': lighten(desaturate(#a83445, 5), 15),
+        'blue': lighten(desaturate(#09394e, 5), 15),
+        'black': lighten(desaturate(#202435, 5), 15),
+        'shadow': rgba(lighten(desaturate(#202435, 5), 50), .5),
+    ),
+    'typo': (
+        'default': #202435,
+        'inverted': #fff,
+    ),
+    'forms': (
+        'bg': #fff,
+        'border': #09394e,
+        'cta': #09394e,
+        'text': #202435,
+        'placeholder': lighten(#202435, 40),
+        'error': #09394e, // #CA454A
+        'shadow': rgba(darken(#f6f6f6, 20), .5),
+    ),
+    'social': (
+        'twitter': rgb(119, 167, 220),
+        'facebook': rgb(69, 88, 151),
+        'gplus-color': rgb(215, 70, 52),
+    ),
+    'link': (
+        'default': #09394e,
+        'hover': #a83445,
+        'active': lighten(#09394e, 20),
+        'focus': lighten(#09394e, 10),
+    )
+);

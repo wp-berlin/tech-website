@@ -1,0 +1,3 @@
+@mixin form-shadow {
+    box-shadow: 0 0 10px 2px map-get-deep($colors, 'forms', 'shadow');
+}

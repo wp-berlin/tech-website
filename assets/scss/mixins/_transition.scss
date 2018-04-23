@@ -1,0 +1,23 @@
+@mixin transition-property($prop...) {
+    -webkit-transition-property: $prop;
+    -moz-transition-property: $prop;
+    -o-transition-property: $prop;
+    transition-property: $prop;
+}
+
+@mixin transition-transform () {
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+}
+
+@mixin transition($prop, $duration, $delay: 0s, $timing-function: linear) {
+    -webkit-transition: -webkit-#{$prop} $duration $timing-function $delay;
+    -webkit-transition: $prop $duration $timing-function $delay;
+    -moz-transition: -moz-#{$prop} $duration $timing-function $delay;
+    -moz-transition: $prop $duration $timing-function $delay;
+    -o-transition: -o-#{$prop} $duration $timing-function $delay;
+    -o-transition: $prop $duration $timing-function $delay;
+    transition: $prop $duration $timing-function $delay;
+}

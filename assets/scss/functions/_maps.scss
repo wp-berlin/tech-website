@@ -1,0 +1,43 @@
+@function map-get-deep($map, $keys...) {
+    // if arglist of arglist has been passed and it's the only element
+    @if (type_of(nth($keys, 1)) == 'arglist') {
+        @if length($keys) > 1 {
+            @error "#{$keys} does not look like something we can process";
+        }
+        $keys: nth($keys, 1);
+    }
+
+    $value: $map;
+    @each $key in $keys {
+        @if NOT map-has-key($value, $key) {
+            @error "Specified index `#{$key}` does not exist in #{map-get($map, type)}";
+        }
+        //@debug "#{$key} exists in #{$value}:  #{map-has-key($value, $key)}" ;
+        $value: map-get($value, $key);
+    }
+
+    @return $value;
+}
+
+@function config($type, $keys ...) {
+    @if type_of($type) == 'string' {
+        $types: (
+            'colors': $colors,
+            'layout': $layout,
+            'media': $media,
+            'typo': $typo,
+            'spacing': $spacing,
+        );
+        @if not map-has-key($types, $type) {
+            @error "#{$type} is not a valid map. Please use one of #{map-keys($types)}";
+        }
+        $type: map-get($types, $type);
+    }
+
+    $value: map-get-deep($type, $keys);
+    @if type-of($value) == 'string' {
+        $value: unquote($value);
+    }
+
+    @return $value;
+}

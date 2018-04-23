@@ -1,0 +1,9 @@
+@mixin linkNoOutline
+{
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+        outline: none;
+    }
+}

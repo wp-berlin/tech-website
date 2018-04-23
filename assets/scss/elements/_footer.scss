@@ -1,0 +1,41 @@
+.footer {
+    background-color: config('colors', 'base', 'wp');
+
+    &-inner {
+        @include row;
+        @include media(config('media', 'breakpoints', 'nav', 'footer')) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @include media(config('media', 'breakpoints', 'nav', 'full')) {
+            justify-content: flex-start;
+        }
+    }
+
+    .menu {
+        list-style-type: none;
+        padding: {
+            left: 0;
+            right: config('spacing', 'large');
+        }
+
+        @include media(config('media', 'breakpoints', 'nav', 'footer')) {
+            flex: 0 1 50%;
+        }
+
+        @include media(config('media', 'breakpoints', 'nav', 'full')) {
+            flex-basis: auto;
+        }
+
+        &-item {
+            a {
+                color: config('colors', 'typo', 'inverted');
+
+                &:hover {
+                    color: config('colors', 'toned', 'yellow');
+                }
+            }
+        }
+    }
+}
