@@ -1,5 +1,15 @@
-module.exports = function(grunt, options) {
-    var config = grunt.file.readJSON('config/env/local.json');
+module.exports = function (grunt, options) {
+    var defaults = grunt.file.readJSON('config/env/default.json'),
+        config = grunt.file.readJSON('config/env/local.json'),
+        bs = {};
+    for (var attrname in defaults.bs) {
+        bs[attrname] = defaults.bs[attrname];
+    }
+    for (attrname in config.bs) {
+        bs[attrname] = config.bs[attrname];
+    }
+    config.bs = bs;
+
     return {
         dev: {
             bsFiles: {
