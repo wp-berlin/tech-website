@@ -3,7 +3,6 @@ module.exports = function(grunt, options) {
     return {
         dev: {
             bsFiles: {
-                // src: 'web/**/*.(css|js|php)'
                 src: [
                     'web/assets/css/*.css',
                     'web/assets/js/*.js',
@@ -13,11 +12,11 @@ module.exports = function(grunt, options) {
             options: {
                 watchTask: true,
                 proxy: config.url,
-                online: true,
-                reload_delay: 100,
-                open: false,
-                notify: true,
-                browser: 'Google Chrome Canary'
+                online: config.bs.online,
+                reload_delay: config.bs.delay,
+                open: config.bs.open,
+                notify: config.bs.notify,
+                browser: config.bs.browser
             }
         }
     };

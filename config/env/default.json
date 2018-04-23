@@ -1,6 +1,6 @@
 {
   "connection": {
-    "type": "mysql",
+    "type": "sqlite",
     "wp": {
       "db": "",
       "user": "",
@@ -8,7 +8,9 @@
       "host": "localhost",
       "charset": "utf8mb4",
       "collate": "",
-      "tablePrefix": ""
+      "tablePrefix": "",
+      "file": "",
+      "dir": ""
     }
   },
   "keys": {
@@ -28,6 +30,13 @@
     "private_key": "",
     "app_id": 0,
     "user_agent": ""
+  },
+  "bs": {
+    "browser": "",
+    "online": false,
+    "delay": 100,
+    "open": false,
+    "notify": true
   },
   "url": "",
   "network": "",
