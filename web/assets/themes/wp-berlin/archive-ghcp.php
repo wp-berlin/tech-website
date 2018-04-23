@@ -6,19 +6,23 @@
  * Time: 18:19
  */
 
-$query = new WP_Query([
-    'post_type'           => 'ghcp',
-    'posts_per_page'      => -1,
-    'ignore_sticky_posts' => 1,
+$readme = get_page_by_path('readme', OBJECT, 'ghcp');
+$query  = new WP_Query([
+    'post_type'      => 'ghcp',
+    'posts_per_page' => -1,
+    'post__not_in'   => [$readme->ID],
 ]);
 get_header();
 
-while ($query->have_posts()) {
+while ($query->have_posts()) :
     $query->the_post();
-
-    echo '<div>';
-    printf('<a href="%s"><h1>%s</h1></a>', get_the_permalink(), get_the_title());
-    echo '</div>';
-}
+    ?>
+    <div class="meeting-minutes-single">
+        <a href="<?= get_the_permalink(); ?>>">
+            <h1><?= get_the_title(); ?></h1>
+        </a>
+    </div>
+<?php
+endwhile;
 
 get_footer();
