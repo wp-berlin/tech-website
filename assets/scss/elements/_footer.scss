@@ -17,7 +17,7 @@
         list-style-type: none;
         padding: {
             left: 0;
-            right: config('spacing', 'large');
+            right: config('spacing', 'default');
         }
 
         @include media(config('media', 'breakpoints', 'nav', 'footer')) {
@@ -29,6 +29,15 @@
         }
 
         &-item {
+            @include media(config('media', 'breakpoints', 'nav', 'full')) {
+                display: inline-block;
+                padding-right: config('spacing', 'default');
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+
             a {
                 color: config('colors', 'typo', 'inverted');
 

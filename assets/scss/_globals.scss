@@ -4,7 +4,7 @@ body {
     position: relative;
 }
 
-html{
+html {
     box-sizing: border-box;
     height: 100%;
 }
@@ -16,19 +16,40 @@ html{
 }
 
 body {
-    //background-color: #fafafa;
+    align-content: flex-start;
+    color: map-get-deep($colors, 'typo', 'default');
+    display: flex;
     font: {
         size: map-get-deep($typo, 'base', 'size');
         family: config('typo', 'base', 'family');
     }
+    flex-direction: column;
     line-height: map-get-deep($typo, 'base', 'line-height');
-    color: map-get-deep($colors, 'typo', 'default');
-    position: relative;
-    min-height: 100vh;
     margin: 0;
+    min-height: 100vh;
+    position: relative;
+
     &.admin-bar {
-        min-height: calc(100% - 32px);
         margin-top: 32px;
+        min-height: calc(100% - 32px);
+    }
+}
+
+.header,
+.nav,
+.footer {
+    flex: 0 0 100%;
+}
+
+.main {
+    flex: 3 0 100%;
+    padding: {
+        top: 4vh;
+        bottom: 4vh;
+    }
+
+    &-inner {
+        @include row;
     }
 }
 
@@ -42,7 +63,7 @@ h6 {
         weight: 700;
         family: config('typo', 'heading', 'family');
     }
-    margin:{
+    margin: {
         top: 1em;
         bottom: .3em
     }
@@ -101,15 +122,14 @@ ol {
 }
 
 img {
-    max-width: 100%;
     height: auto;
     -ms-interpolation-mode: bicubic;
+    max-width: 100%;
 }
 
-
 a {
-    transition-duration: .2s;
     color: map-get-deep($colors, 'link', 'default');
+    transition-duration: .2s;
 
     &:hover {
         color: map-get-deep($colors, 'link', 'hover');
@@ -129,7 +149,7 @@ article {
         font-weight: 900;
 
         &:hover {
-            border-bottom: 5px solid map-get-deep($colors, 'base','black');
+            border-bottom: 5px solid map-get-deep($colors, 'base', 'black');
         }
     }
 }
