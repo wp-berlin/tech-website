@@ -1,64 +1,67 @@
 {
-    "name": "wp-berlin/tech-website",
-    "description": "Public website for the WordPress Tech Meetup Berlin",
-    "type": "project",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://wpackagist.org"
-        }
-    ],
-    "autoload": {
-
+  "name": "wp-berlin/tech-website",
+  "description": "Public website for the WordPress Tech Meetup Berlin",
+  "type": "project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
     },
-    "require": {
-        "johnpbloch/wordpress-core": "^4.9",
-        "hassankhan/config": "^1.0",
-        "composer/installers": "^1.5",
-        "johnpbloch/wordpress-core-installer": "1.0.0.2",
-        "wpackagist-plugin/disable-wordpress-updates": "^1.6",
-        "tillkruss/redis-cache": "^1.3",
-        "alpipego/awp-di": "^0.4.1",
-        "alpipego/awp-template": "dev-develop",
-        "wpackagist-plugin/no-self-ping": "^1.1",
-        "symfony/cache": "^4.0",
-        "predis/predis": "^1.1",
-        "alpipego/awp-assets": "^0.3.0",
-        "alpipego/ghcp": "^0.1.0",
-        "alpipego/awp-cache": "^0.1.0"
+    {
+      "type": "vcs",
+      "url":  "git@github.com:alpipego/wp-sqlite-integration.git"
+    }
+  ],
+  "autoload": {
+  },
+  "require": {
+    "johnpbloch/wordpress-core": "^4.9",
+    "hassankhan/config": "^1.0",
+    "composer/installers": "^1.5",
+    "johnpbloch/wordpress-core-installer": "1.0.0.2",
+    "wpackagist-plugin/disable-wordpress-updates": "^1.6",
+    "tillkruss/redis-cache": "^1.3",
+    "alpipego/awp-di": "^0.4.1",
+    "alpipego/awp-template": "dev-develop",
+    "wpackagist-plugin/no-self-ping": "^1.1",
+    "symfony/cache": "^4.0",
+    "predis/predis": "^1.1",
+    "alpipego/awp-assets": "^0.3.0",
+    "alpipego/ghcp": "^0.1.0",
+    "alpipego/awp-cache": "^0.1.0",
+    "alpipego/sqlite-integration": "dev-master"
+  },
+  "require-dev": {
+    "deployer/recipes": "^6.0",
+    "deployer/deployer": "^6.1",
+    "wpackagist-plugin/rewrite-rules-inspector": "^1.2"
+  },
+  "license": "GPL3.0+",
+  "extra": {
+    "wordpress-install-dir": "web/wp",
+    "installer-paths": {
+      "web/must-use/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/assets/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
     },
-    "require-dev": {
-        "deployer/recipes": "^6.0",
-        "deployer/deployer": "^6.1",
-        "wpackagist-plugin/rewrite-rules-inspector": "^1.2",
-        "wpackagist-plugin/query-monitor": "^2.17"
-    },
-    "license": "GPL3.0+",
-    "extra": {
-        "wordpress-install-dir": "web/wp",
-        "installer-paths": {
-            "web/must-use/{$name}/": [
-                "type:wordpress-muplugin"
-            ],
-            "web/plugins/{$name}/": [
-                "type:wordpress-plugin"
-            ],
-            "web/assets/themes/{$name}/": [
-                "type:wordpress-theme"
-            ]
-        },
-        "dropin-paths": {
-            "web/languages/": [
-                "vendor:koodimonni-language"
-            ]
-        }
-    },
-    "authors": [
-        {
-            "name": "Alexander Goller",
-            "email": "alpipego@gmail.com",
-            "homepage": "https://alpipego.com",
-            "role": "Developer"
-        }
-    ]
+    "dropin-paths": {
+      "web/languages/": [
+        "vendor:koodimonni-language"
+      ]
+    }
+  },
+  "authors": [
+    {
+      "name": "Alexander Goller",
+      "email": "alpipego@gmail.com",
+      "homepage": "https://alpipego.com",
+      "role": "Developer"
+    }
+  ]
 }
