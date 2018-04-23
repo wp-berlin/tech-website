@@ -18,7 +18,7 @@ while ($query->have_posts()) :
     $query->the_post();
     ?>
     <div class="meeting-minutes-single">
-        <a href="<?= get_the_permalink(); ?>>">
+        <a href="<?= get_the_permalink(); ?>">
             <h1><?= get_the_title(); ?></h1>
         </a>
     </div>
