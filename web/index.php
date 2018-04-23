@@ -6,9 +6,12 @@
  * Time: 14:15
  */
 
+namespace WpBerlin\Website;
+
 use Alpipego\AWP\Cache\Adapter\PredisHashCache;
 use Alpipego\AWP\Cache\Cache;
 use Alpipego\AWP\Cache\Enabler;
+use Predis\Client;
 use Predis\Connection\ConnectionException;
 
 $start = microtime(true);   // start timing page exec
@@ -19,7 +22,7 @@ define('WP_USE_THEMES', true);
 define('BLOG_HEADER', __DIR__ . '/wp/wp-blog-header.php');
 define('CACHE_DEBUG', false);
 
-$predis = new Predis\Client();
+$predis = new Client();
 
 try {
     $cacheable = new Enabler();
@@ -28,7 +31,8 @@ try {
         $predis->connect();
     } catch (ConnectionException $e) {
         $cacheable->addMessage('Redis not running');
-        throw new Exception();
+        require_once BLOG_HEADER;
+        exit;
     }
 
 //    if ($cacheable->cacheable()) {
@@ -60,6 +64,7 @@ try {
             case 'path' :
                 $cache->delete($cacheable->getPath());
                 $cacheable->addMessage(sprintf('path %s cache purged', $cacheable->getPath()));
+                break;
             case 'site' :
                 $cache->clear();
                 $cacheable->addMessage('site cache purged');
