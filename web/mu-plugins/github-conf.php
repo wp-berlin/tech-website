@@ -6,6 +6,10 @@
  * Time: 18:32
  */
 
+namespace WpBerlin\Website;
+
+use Alpipego\GhCp\PostType;
+
 $vars = [
     'ghcp/webhook_secret',
     'ghcp/app_id',
@@ -23,4 +27,14 @@ foreach ($vars as $var) {
 
 add_filter('ghcp/private_key', function () use ($conf) {
     return trim(file_get_contents(BASE_PATH . '/' . $conf->get('ghcp.private_key')));
+});
+
+add_filter('ghcp/rewrite/slug', function() {
+    return 'meeting-minutes';
+});
+
+add_filter('ghcp/post_type_object', function(PostType $post_type) {
+     $post_type->has_archive(true);
+
+     return $post_type;
 });
