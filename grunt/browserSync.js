@@ -13,7 +13,7 @@ module.exports = function(grunt, options) {
             options: {
                 watchTask: true,
                 proxy: config.url,
-                online: false,
+                online: true,
                 reload_delay: 100,
                 open: false,
                 notify: true,

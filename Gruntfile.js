@@ -16,14 +16,19 @@ module.exports = function (grunt) {
             },
             files: {
                 js: {
+                    '<%= path.dest.js %>/front.min.js': [
+                        'node_modules/typed.js/lib/typed.js',
+                        '<%= path.src.js %>/_typed.js',
+                        '<%= path.src.js %>/scrollspy.js',
+                        '<%= path.src.js %>/_parallax.js',
+                    ],
                     '<%= path.dest.js %>/app.min.js': [
+                        '<%= path.src.js %>/_home-link.js',
+                        '<%= path.src.js %>/_nav.js',
                     ]
                 },
                 noJquery: {
-                    '<%= path.dest.js %>/scriptloader.min.js': '<%= path.src.js %>/scriptloader.js',
-                    '<%= path.dest.js %>/webfontloader.min.js': '<%= path.src.js %>/webfonts.js',
-                    '<%= path.dest.js %>/fontawesome-all.min.js': '<%= path.src.js %>/fontawesome-all.js',
-                    '<%= path.dest.js %>/fa-css.min.js': '<%= path.src.js %>/fa-css.js'
+                    '<%= path.dest.js %>/webfontloader.min.js': '<%= path.src.js %>/webfonts.js'
                 },
                 copy: {}
             }

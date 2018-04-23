@@ -23,22 +23,6 @@ module.exports = function (grunt, options) {
                 extDot: 'last'
             }]
         },
-        fonts: {
-            options: {
-                processors: [
-                    require('cssnano')
-                ]
-            },
-            files: [{
-                expand: true,
-                cwd: options.path.tmp,
-                src: 'icon-fonts/**/*.css',
-                dest: options.path.dest.css + '/fonts',
-                ext: '.css',
-                extDot: 'last',
-                flatten: true
-            }]
-        },
         dist: {
             options: {
                 processors: [
