@@ -29,14 +29,16 @@
     "alpipego/awp-assets": "^0.3.0",
     "alpipego/ghcp": "^0.1.0",
     "alpipego/awp-cache": "^0.1.0",
-    "alpipego/sqlite-integration": "dev-master"
+    "alpipego/sqlite-integration": "dev-master",
+    "wpackagist-plugin/disable-emojis": "^1.7",
+    "wp-cli/wp-cli": "^1.5"
   },
   "require-dev": {
     "deployer/recipes": "^6.0",
     "deployer/deployer": "^6.1",
     "wpackagist-plugin/rewrite-rules-inspector": "^1.2"
   },
-  "license": "GPL3.0+",
+  "license": "GPL-3.0-or-later",
   "extra": {
     "wordpress-install-dir": "web/wp",
     "installer-paths": {
