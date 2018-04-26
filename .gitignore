@@ -30,6 +30,7 @@ php-server.ini
 
 # dev database
 /database/*
+!/database/wp.sqlite
 
 # symlinks
 /web/assets/db.php
