@@ -36,6 +36,14 @@ $styles->add(
 );
 
 $styles->add(
+    (new Style('404'))
+        ->deps(['app'])
+        ->condition(function() {
+            return is_404();
+        })
+);
+
+$styles->add(
     (new Style('archive'))
         ->deps(['app'])
         ->condition(function() {

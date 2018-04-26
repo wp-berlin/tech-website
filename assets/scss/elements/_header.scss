@@ -11,7 +11,7 @@
         padding-top: 150px;
 
         @include media((100 / 4) * config('typo', 'intro', 'size')) {
-            margin-bottom: 68px;
+            margin-bottom: 66px;
         }
     }
 

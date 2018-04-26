@@ -1,10 +1,10 @@
-@mixin row() {
+@mixin row($max-width: config('layout', 'row', 'width')) {
     margin: {
         left: auto;
         right: auto;
     }
     width: 100%;
-    max-width: map-get-deep($layout, 'row', 'width');
+    max-width: $max-width;
     padding: {
         top: map-get-deep($spacing, 'v', 'default');
         right: map-get-deep($spacing, 'h', 'default');

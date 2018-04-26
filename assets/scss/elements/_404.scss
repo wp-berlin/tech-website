@@ -1,0 +1,42 @@
+.heading-404,
+.subheading-404,
+.content-404 {
+    text-align: center;
+}
+
+.heading-404,
+.subheading-404 {
+    line-height: 1;
+    margin: 0;
+}
+
+.heading-404 {
+    font-size: 35vw;
+    @include media(100/35 * 200) {
+        font-size: 200px;
+    }
+}
+
+.subheading-404 {
+    font-size: 16vw;
+    margin-bottom: 1rem;
+    @include media(100/16 * 90) {
+        font-size: 90px;
+    }
+}
+
+.content-404 {
+    font-size: 1.25rem;
+    @include row(800px);
+}
+
+.header {
+    .js & {
+        @include media(0, config('media', 'breakpoints', 'nav', 'inline')) {
+            margin-bottom: calc(2vw + 57px);
+        }
+        @include media(config('media', 'breakpoints', 'nav', 'inline'), (100 / 4) * config('typo', 'intro', 'size')) {
+            margin-bottom: calc(2vw + 44px);
+        }
+    }
+}

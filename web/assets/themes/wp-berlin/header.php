@@ -45,14 +45,20 @@
         <li class="menu-item">
             <a href="<?= get_post_type_archive_link('ghcp'); ?>">Meeting Minutes</a>
         </li>
-        <li class="menu-item">Contribute</li>
+        <li class="menu-item">
+            <a href="/contribute">Contribute</a>
+        </li>
         <li class="menu-item is-dummy"></li>
-        <li class="menu-item">About</li>
-        <li class="menu-item">Code of Conduct</li>
+        <li class="menu-item">
+            <a href="/about">About</a>
+        </li>
+        <li class="menu-item">
+            <a href="/code-of-conduct">Code of Conduct</a>
+        </li>
     </ul>
 </nav>
 
-<?php if (is_front_page()) : ?>
+<?php if (is_front_page() || is_404()) : ?>
     <a class="link-back" href="https://wpmeetup-berlin.de/">
         Looking for the General Purpose WordPress Meetup?
     </a>
