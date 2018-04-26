@@ -1,0 +1,22 @@
+.single {
+    &-title,
+    &-content {
+        @include media(config('media', 'breakpoints', 'default')) {
+            margin: {
+                right: auto;
+                left: auto;
+            }
+            width: 75%;
+        }
+    }
+    &-title {
+        margin-bottom: 1em;
+    }
+    &-content {
+        font: {
+            family: config('typo', 'content', 'family');
+            size: config('typo', 'content', 'size');
+        }
+        line-height: config('typo', 'content', 'line-height');
+    }
+}
