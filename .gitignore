@@ -49,3 +49,4 @@ php-server.pid
 # overrides
 !.gitkeep
 ssh_config
+php-server.ini
