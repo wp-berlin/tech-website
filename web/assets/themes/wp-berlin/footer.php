@@ -23,7 +23,7 @@
             <a href="https://github.com/wp-berlin">@wp-berlin on GitHub</a>
         </li>
         <li class="menu-item">
-            <a href="">Website der Berliner Community</a>
+            <a href="https://wpmeetup-berlin.de/">Website der Berliner Community</a>
         </li>
     </ul>
     </div>
