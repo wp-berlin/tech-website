@@ -8,10 +8,10 @@ node_modules/
 # local config
 /config/
 wp-cli.local.yml
-!/config/env/default.json
+ssh_config
+php-server.ini
 
-# Local dev server
-php-server.pid
+!/config/env/default.json
 
 # wordpress deps
 /web/wp/
@@ -48,5 +48,3 @@ php-server.pid
 
 # overrides
 !.gitkeep
-ssh_config
-php-server.ini
