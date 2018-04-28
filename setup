@@ -1,0 +1,5 @@
+#! /usr/bin/env php
+
+<?php
+shell_exec(sprintf('/usr/bin/env php %s install --prefer-source --no-interaction', trim(shell_exec('which composer'))));
+system('/usr/bin/env php ./vendor/bin/dep --file=setup.php setup');
