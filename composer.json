@@ -37,7 +37,7 @@
     "deployer/recipes": "^6.0",
     "deployer/deployer": "^6.1",
     "wpackagist-plugin/rewrite-rules-inspector": "^1.2",
-    "natanfelles/php-server": "^2.4"
+    "rmccue/requests": "^1.7"
   },
   "license": "GPL-3.0-or-later",
   "extra": {

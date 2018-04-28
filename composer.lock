@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9c11a5beb9903661db412ff39eb64d3",
-    "content-hash": "aa26cdbbd11f0897f932bd849cb2b19c",
+    "hash": "5b17f179ff0e114a1facf3f33768d65a",
+    "content-hash": "42183f452f455db5c2912f769161a76d",
     "packages": [
         {
             "name": "alpipego/awp-assets",
