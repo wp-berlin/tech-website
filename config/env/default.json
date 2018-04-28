@@ -19,7 +19,7 @@
     "logged_in": "",
     "nonce": ""
   },
-  "salt": {
+  "salts": {
     "auth": "",
     "secure_auth": "",
     "logged_in": "",
@@ -35,7 +35,7 @@
     "browser": "",
     "online": false,
     "delay": 100,
-    "open": false,
+    "open": true,
     "notify": true
   },
   "url": "",

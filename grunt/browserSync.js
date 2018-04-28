@@ -1,4 +1,4 @@
-module.exports = function (grunt, options) {
+module.exports = function (grunt) {
     var defaults = grunt.file.readJSON('config/env/default.json'),
         config = grunt.file.readJSON('config/env/local.json'),
         bs = {};
