@@ -1,20 +1,17 @@
+# Public Website WordPress Tech Meetup Berlin
 Public website for the WordPress Tech Meetup Berlin.
 
-# Local Installation
-Create file `config/env.json` and add 
-```json
-{
-  "env": "local"
-}
-```
+https://tech.wpmeetup-berlin.de/
 
-Copy `config/env/default.json` to `config/env/local.json` and edit variables.
+## Local Installation
+Run the setup script `./setup`. This will ask you some questions to create the necessary config files and install the dependencies.
 
-Run `composer install`
+If you want to start the local dev server you have three options:
 
-## Suggestion
-Use php's built in development server: 
-* `php -S localhost:8000` __(Note: Adress in local.json and php server must match)__.
+* `grunt` will start all servers and create and cleanup assets
+* `grunt fast` will start the local php server and in addition proxy the requests through [browserSync](https://browsersync.io/)
+* `grunt php` will only start the local php server
 
-Use sqlite:
-*  copy db drop-in `cp web/plugins/sqlite-integration/db.php web/assets/db.php`
+## Note
+Do not commit the database file if you're starting a pull request. The database is only part of the repo, to get you the content of the production website in your dev environment.
+
