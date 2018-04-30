@@ -7,6 +7,7 @@
  */
 
 require_once __DIR__ . '/functions/nav-menu.php';
+require_once __DIR__ . '/functions/anchors.php';
 
 add_action('wp_head', function () {
     ?>
