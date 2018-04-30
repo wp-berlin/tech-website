@@ -23,13 +23,13 @@ $styles->add(
     (new Style('single'))
         ->deps(['app'])
         ->condition(function() {
-            return is_singular() || is_page();
+            return is_singular() && !is_page();
         })
 );
 
 $styles->add(
     (new Style('page'))
-        ->deps(['app', 'single'])
+        ->deps(['app'])
         ->condition(function() {
             return is_page();
         })
