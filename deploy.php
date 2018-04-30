@@ -31,7 +31,6 @@ host('151.252.51.213')
 
 task('reload_services', function () {
     run('sudo service nginx reload');
-    //    run('sudo service php7.2-fpm reload');
 });
 
 task('symlink:db', function () {
@@ -62,7 +61,7 @@ task('deploy', [
     'deploy:symlink',
     'deploy:unlock',
     'wp:plugins',
-    //    'cachetool:clear:opcache',
+    'cachetool:clear:opcache',
     'reload_services',
     'cleanup',
 ]);

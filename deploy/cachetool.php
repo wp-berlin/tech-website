@@ -7,26 +7,13 @@
 
 namespace Deployer;
 
-set('cachetool', '');
-
 /**
  * Clear opcache cache
  */
 desc('Clearing OPcode cache');
 task('cachetool:clear:opcache', function () {
     $releasePath = get('release_path');
-    $options = get('cachetool');
-
-    if (strlen($options)) {
-        $options = "--fcgi={$options}";
-    }
-
     cd($releasePath);
-    $hasCachetool = run("if [ -e $releasePath/cachetool.phar ]; then echo 'true'; fi");
 
-    if ('true' !== $hasCachetool) {
-        run("curl -sO https://gordalina.github.io/cachetool/downloads/cachetool.phar");
-    }
-
-    run("sudo {{bin/php}} cachetool.phar opcache:reset {$options}");
+    run("./vendor/bin/cachetool opcache:reset --fcgi=/var/run/php/php7.2-fpm-wp-berlin.sock");
 });
