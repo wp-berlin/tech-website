@@ -12,6 +12,7 @@ while (have_posts()) :
     ?>
     <div class="frontpage-main">
         <?php the_content(); ?>
+        <?php do_action('wpberlin/website/front_page'); ?>
     </div>
 <?php
 endwhile;
