@@ -13,16 +13,8 @@ var typed = new Typed('#intro', {
     ],
     smartBackspace: true,
     // pseudo onStart; onStart does not fire and this fires only onec for smartBackspace
-    preStringTyped: function (arrayPos, self) {
+    preStringTyped: function () {
         typed.el.classList.add('has-cursor');
-    },
-    onStringTyped: function (arrayPos, self) {
-        // if (arrayPos === 2) {
-        //     self.stop();
-        // }
-    },
-    onStart: function () {
-        console.log('why??');
     },
     onComplete: function (typed) {
         typed.el.children[0].classList.add('header-intro-highlight');
