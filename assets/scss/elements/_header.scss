@@ -6,9 +6,9 @@
     min-height: calc(170px + 20px + 4vw);
 
     .js & {
-        margin-bottom: calc(2vw + 30px);
+        margin-bottom: calc(4vw + 30px);
         min-height: unset;
-        padding-top: 150px;
+        padding-top: 170px;
 
         @include media((100 / 4) * config('typo', 'intro', 'size')) {
             margin-bottom: 66px;
@@ -17,23 +17,20 @@
 
     &.is-nav-expanded {
         @include media(0, config('media', 'breakpoints', 'nav', 'inline')) {
-            padding-top: 300px;
+            padding-top: 320px;
             transition-duration: .3s;
-            min-height: calc(300px + 20px + 4vw);
+            min-height: calc(350px + 4vw)!important;
+            margin-bottom: 0;
 
             .header {
                 &-logo {
                     background-color: config('colors', 'base', 'black');
-                    transform: translateY(130px);
+                    transform: translateY(145px);
                     transition: {
                         property: transform;
                         duration: .3s;
                     }
                     width: 100%;
-                }
-
-                &-intro {
-                    padding-top: config('spacing', 'small');
                 }
             }
         }
@@ -52,7 +49,7 @@
             z-index: 2;
 
             @include media(config('media', 'breakpoints', 'nav', 'inline')) {
-                top: 0;
+                //top: 0;
             }
         }
     }
@@ -61,7 +58,7 @@
         background-color: config('colors', 'base', 'black');
         color: map-get-deep($colors, 'typo', 'inverted');
         padding: {
-            top: config('spacing', 'medium');
+            top: config('spacing', 'small');
             bottom: config('spacing', 'default');
         }
         line-height: 1;

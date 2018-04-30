@@ -1,8 +1,9 @@
 .header {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 
     @include media(config('media', 'breakpoints', 'nav', 'inline')) {
-        padding-top: 100px!important;
+        padding-top: 100px !important;
+        margin-bottom: 0!important;
     }
 
     &-logo {
@@ -67,7 +68,7 @@
         .header {
             &-logo {
                 position: fixed;
-                top: 0;
+                //top: 0;
             }
             &-intro {
                 position: fixed;
@@ -79,4 +80,3 @@
 .typed-cursor {
     color: config('colors', 'typo', 'inverted');
 }
-

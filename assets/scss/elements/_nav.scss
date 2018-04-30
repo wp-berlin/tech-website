@@ -7,42 +7,14 @@
     position: relative;
 
     .js & {
-        min-height: 150px;
+        min-height: 170px;
+        padding-bottom: config('spacing', 'default');
         position: fixed;
-    }
 
-    &.is-expanded {
-        .menu {
-            opacity: 1;
-            visibility: visible;
-            transition: {
-                property: opacity;
-                duration: .2s;
-                delay: .2s;
-            }
-        }
-
-        .nav-toggle {
-            background-color: transparent;
-
-            &::before,
-            &::after {
-                transform-origin: 50% 100%;
-                transition: {
-                    property: transform;
-                    duration: .5s;
-                }
-            }
-
-            &::before {
-                transform: rotate(45deg);
-                top: 2px;
-                left: -2px;
-            }
-
-            &::after {
-                transform: rotate(-45deg);
-                top: -2px;
+        @include media(config('media', 'breakpoints', 'nav', 'inline')) {
+            padding: {
+                top: config('spacing', 'default');
+                bottom: 0;
             }
         }
     }
@@ -91,22 +63,22 @@
     }
 
     .menu {
-        opacity: 0;
         padding: {
-            top: config('spacing','default');
+            top: config('spacing', 'default');
             left: 0;
         }
-        visibility: hidden;
         width: 100%;
 
         .js & {
             margin: 0;
+            opacity: 0;
+            visibility: hidden;
 
             @include media(config('media', 'breakpoints', 'nav', 'inline')) {
-                padding-top: 0!important;
+                padding-top: 0 !important;
                 display: flex;
                 visibility: visible !important;
-                opacity: 1!important;
+                opacity: 1 !important;
             }
         }
 
@@ -159,6 +131,42 @@
                 @include media(config('media', 'breakpoints', 'nav', 'inline')) {
                     display: initial;
                 }
+            }
+        }
+    }
+
+    &.is-expanded {
+        .menu {
+            opacity: 1!important;
+            visibility: visible!important;
+            transition: {
+                property: opacity;
+                duration: .2s;
+                delay: .2s;
+            }
+        }
+
+        .nav-toggle {
+            background-color: transparent;
+
+            &::before,
+            &::after {
+                transform-origin: 50% 100%;
+                transition: {
+                    property: transform;
+                    duration: .5s;
+                }
+            }
+
+            &::before {
+                transform: rotate(45deg);
+                top: 2px;
+                left: -2px;
+            }
+
+            &::after {
+                transform: rotate(-45deg);
+                top: -2px;
             }
         }
     }

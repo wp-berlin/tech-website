@@ -23,21 +23,16 @@
             <?php require WP_CONTENT_DIR . '/img/logo-berlin-2-optimized.svg'; ?>
         </a>
     </div>
-    <div class="header-intro" id="intro">
+    <div class="header-intro" <?= is_front_page() ? 'id="intro"' : ''; ?>>
         <?php if ( ! is_front_page()) : ?>
             WordPress Meetup Berlin <span class="header-intro-highlight">Tech Edition</span>
+        <?php else: ?>
+            <noscript>
+                WordPress Meetup Berlin <span class="header-intro-highlight">Tech Edition</span>
+            </noscript>
         <?php endif; ?>
     </div>
-    <?php if (is_front_page()) : ?>
-        <noscript>
-            <div class="header-intro">
-                WordPress Meetup Berlin <span class="header-intro-highlight">Tech Edition</span>
-            </div>
-        </noscript>
-    <?php endif; ?>
 </header>
-
-<section data-midnight="is-fixed"></section>
 
 <nav class="nav" id="nav" role="navigation">
     <div class="nav-toggle" id="toggle"></div>
@@ -65,4 +60,4 @@
 <?php endif; ?>
 
 <main class="<?= implode(' ', apply_filters('wpberlin/website/main_classes', ['main'])); ?>">
-<div class="main-inner">
+    <div class="main-inner">
