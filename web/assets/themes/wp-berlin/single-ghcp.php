@@ -12,11 +12,11 @@ get_header();
 while (have_posts()) {
     the_post();
     ?>
-    <div class="markdown-body">
+    <div class="markdown-body single-main">
         <h1><?= get_the_title(); ?></h1>
         <?php the_content(); ?>
     </div>
-    <aside class="markdown-sidebar">
+    <aside class="markdown-sidebar sidebar">
         <div class="sidebar-dates">
             <div class="sidebar-dates-created">
                 <h3><?= __('Created', 'wp-berlin'); ?></h3>

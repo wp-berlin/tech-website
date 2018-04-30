@@ -12,8 +12,8 @@ while (have_posts()) :
     the_post();
     ?>
     <div class="single-page">
-        <h1 class="single-page-title single-title"><?= get_the_title(); ?></h1>
-        <div class="single-content single-page-content">
+        <h1 class="single-page-title"><?= get_the_title(); ?></h1>
+        <div class="single-page-content">
             <?php the_content(); ?>
         </div>
     </div>
