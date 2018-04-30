@@ -28,8 +28,13 @@ $styles->add(
 );
 
 $styles->add(
+    (new Style('github'))
+    ->condition('__return_false')
+);
+
+$styles->add(
     (new Style('page'))
-        ->deps(['app'])
+        ->deps(['app', 'github'])
         ->condition(function() {
             return is_page();
         })
@@ -53,7 +58,7 @@ $styles->add(
 
 $styles->add(
     (new Style('single-minutes'))
-    ->deps(['app', 'single'])
+    ->deps(['app', 'single', 'github'])
     ->condition(function() {
         return is_singular('ghcp');
     })

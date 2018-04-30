@@ -13,7 +13,7 @@ while (have_posts()) :
     ?>
     <div class="single-page">
         <h1 class="single-page-title"><?= get_the_title(); ?></h1>
-        <div class="single-page-content">
+        <div class="single-page-content markdown-body">
             <?php the_content(); ?>
         </div>
     </div>
