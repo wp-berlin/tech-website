@@ -6,7 +6,7 @@ By organizing another Meetup, targeted towards WordPress developers, administrat
 
 We invite everyone regardless of age, sex, religion, sexual orientation, cultural background, language to be a part of this meetup. While the contents will get technical, we encourage everyone to participate. 
 
-Please see our [/contributing](/contributing) page to check how to get involved and improve the community work not only for you but everyone.
+Please see our [/contributing](/contribute) page to check how to get involved and improve the community work not only for you but everyone.
 
 ## Contact Information
 
