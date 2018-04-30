@@ -1,22 +1,15 @@
-.single {
-    &-title,
-    &-content {
-        @include media(config('media', 'breakpoints', 'default')) {
-            margin: {
-                right: auto;
-                left: auto;
-            }
-            width: 75%;
-        }
+@include media(config('media', 'breakpoints', 'default')) {
+    .main-inner {
+        display: flex;
+        justify-content: space-between;
     }
-    &-title {
-        margin-bottom: 1em;
-    }
-    &-content {
-        font: {
-            family: config('typo', 'content', 'family');
-            size: config('typo', 'content', 'size');
+
+    .single {
+        &-main {
+            flex: 0 0 calc(75% - #{config('spacing', 'small')});
         }
-        line-height: config('typo', 'content', 'line-height');
+        &-sidebar {
+            flex: 0 0 calc(25% - #{config('spacing', 'small')});
+        }
     }
 }

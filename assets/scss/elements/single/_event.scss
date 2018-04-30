@@ -1,0 +1,75 @@
+.single-event {
+    & + & {
+        margin-top: config('spacing', 'v', 'large');
+    }
+
+    @include media(config('media', 'breakpoints', 'default')) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &-title {
+        @include media(config('media', 'breakpoints', 'default')) {
+            flex: 1 0 100%;
+        }
+    }
+
+    &-content {
+        font: {
+            family: config('typo', 'content', 'family');
+            size: config('typo', 'content', 'size');
+        }
+        line-height: config('typo', 'content', 'line-height');
+    }
+
+    &-sidebar {
+        margin: {
+            top: 1rem;
+            bottom: 1rem;
+        }
+        font-size: 1.25rem;
+    }
+
+    &-date {
+
+    }
+
+    &-time {
+
+    }
+
+    &-location {
+        h3 {
+            font-size: 1.25rem;
+        }
+        p {
+            margin: {
+                top: config('spacing', 'small');
+                bottom: 0;
+            }
+        }
+    }
+
+    &-link {
+        background-color: config('colors', 'social', 'meetup');
+        color: config('colors', 'typo', 'inverted');
+        display: inline-block;
+        border-radius: 3px;
+        text: {
+            align: center;
+            decoration: none;
+        }
+        width: 100%;
+        padding: config('spacing', 'small');
+        border: 1px solid config('colors', 'social', 'meetup');
+        margin-top: config('spacing', 'default');
+
+        &:hover {
+            box-shadow: 1px 1px 15px config('colors', 'toned', 'shadow'), -1px -1px 15px config('colors', 'toned', 'shadow');
+            color: config('colors', 'typo', 'inverted');
+            background-color: lighten(config('colors', 'social', 'meetup'), 10);
+            transition: background-color .3s;
+        }
+    }
+}

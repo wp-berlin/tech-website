@@ -33,18 +33,3 @@
         }
     }
 }
-
-@include media(config('media', 'breakpoints', 'default')) {
-    .main-inner {
-        display: flex;
-        justify-content: space-between;
-    }
-    .markdown {
-        &-body {
-            flex: 0 0 calc(75% - #{config('spacing', 'small')});
-        }
-        &-sidebar {
-            flex: 0 0 calc(25% - #{config('spacing', 'small')});
-        }
-    }
-}
