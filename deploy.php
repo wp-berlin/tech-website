@@ -42,10 +42,6 @@ task('ssh:add_key', function () {
     runLocally('ssh-add -AK');
 });
 
-task('debug', function () {
-
-});
-
 task('content', [
     'content:update',
 ]);

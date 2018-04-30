@@ -9,7 +9,7 @@
 namespace WpBerlin\Deploy;
 
 use function Deployer\{
-    askConfirmation, runLocally, task, writeln
+    askConfirmation, run, runLocally, task, write, writeln
 };
 
 require_once __DIR__ . '/database.php';
@@ -26,7 +26,7 @@ task('content:update', function () use ($database) {
         return;
     }
 
-    $getDb = askConfirmation('Do you want to download the production database before inserting new posts?', false);
+    $getDb = askConfirmation('Do you want to download the production database before inserting new posts?', true);
     if ($getDb) {
         writeln('Get production database');
         $database->download();
@@ -70,8 +70,34 @@ task('content:update', function () use ($database) {
         $database->upload();
         $dbGit = askConfirmation('You\'ve downloaded the production database. Add to git now?', true);
         if ($dbGit) {
+            writeln('Cleaning up database.');
+            databaseCleanup();
             writeln('Commit and push updated database to origin');
             $database->git();
         }
     }
 });
+
+function databaseCleanup() {
+    $config = require __DIR__ . '/../config.php';
+    try {
+        $db = new \PDO('sqlite:database/wp.sqlite');
+        $queries = [];
+        $queries[] = sprintf(
+            'DELETE FROM %soptions WHERE option_name LIKE "_transient_%%" OR option_name LIKE "_site_transient_%%";',
+            $config->get('connection.wp.tablePrefix')
+        );
+        $queries[] = sprintf(
+            'UPDATE %susermeta SET meta_value = "" WHERE meta_key = "session_tokens";',
+            $config->get('connection.wp.tablePrefix')
+        );
+        foreach ($queries as $query) {
+            write("Running ${query}: ");
+            $stmt = $db->query($query);
+            $stmt->fetchAll();
+            writeln(sprintf('<info>%d rows affected</info>', $stmt->rowCount()));
+        }
+    } catch (\Exception $e) {
+        die($e->getMessage());
+    }
+}
