@@ -16,6 +16,7 @@ $config = [
         'ghcp',
         'redis-cache',
         'sqlite-integration',
+        'meetup-api',
     ],
     'local'      => [
         'rewrite-rules-inspector',
