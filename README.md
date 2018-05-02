@@ -4,7 +4,9 @@ Public website for the WordPress Tech Meetup Berlin.
 https://tech.wpmeetup-berlin.de/
 
 ## Local Installation
-Run the setup script `./setup`. This will ask you some questions to create the necessary config files and install the dependencies.
+If you don't have composer installed, please do this first: https://getcomposer.org/download/
+
+Then install the dependencies and run the setup script `composer install --prefer-source && /usr/bin/env php ./vendor/bin/dep --file=setup.php setup`. 
 
 If you want to start the local dev server you have three options:
 
