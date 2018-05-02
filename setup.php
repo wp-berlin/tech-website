@@ -28,8 +28,8 @@ function getUrl()
 }
 
 task('setup', [
-    //    'setup:config',
-    //    'setup:git',
+    'setup:config',
+    'setup:git',
     'setup:wpcli',
     'setup:finish',
 ]);
