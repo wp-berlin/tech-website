@@ -18,5 +18,5 @@ add_filter('wpberlin/meetup/api_key', function () use ($conf) {
 });
 
 add_filter('wpberlin/meetup/events', function () {
-    return [249940300, 250275998];
+    return [250275998];
 });
