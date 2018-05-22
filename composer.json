@@ -32,7 +32,8 @@
     "alpipego/sqlite-integration": "dev-master",
     "wpackagist-plugin/disable-emojis": "^1.7",
     "wp-cli/wp-cli": "^1.5",
-    "gordalina/cachetool": "^3.0"
+    "gordalina/cachetool": "^3.0",
+    "php": "^7.1"
   },
   "require-dev": {
     "deployer/recipes": "^6.0",
