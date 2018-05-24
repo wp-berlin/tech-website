@@ -42,5 +42,6 @@ The following is a&mdash;by no means exhaustive&mdash;list of ideas to talk abou
 * [ ] SVN
 * [ ] Plugin compatibility (PHP, WordPress, Gutenberg)
 * [ ] [WP-CLI](https://wp-cli.org/) and packages
+* [ ] Test WordPress Coding Standards via GitLab CI/Travis CI
 
 * [x] Content security policy (CSP)
