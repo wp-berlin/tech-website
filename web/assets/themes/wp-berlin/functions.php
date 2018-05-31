@@ -24,3 +24,7 @@ add_filter('wpberlin/website/main_classes', function (array $classes) : array {
 
     return $classes;
 });
+
+add_action('after_setup_theme', function () {
+    add_theme_support('title-tag');
+});
