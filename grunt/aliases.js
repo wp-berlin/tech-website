@@ -5,6 +5,7 @@ module.exports = {
         "postcss:dist",
         "uglify:noJquery",
         "uglify:dist",
+        "copy",
         "modernizr"
     ],
     "default": [
@@ -14,6 +15,7 @@ module.exports = {
         "uglify:noJquery",
         "uglify:default",
         "modernizr",
+        "copy",
         "php",
         "browserSync",
         "watch"
