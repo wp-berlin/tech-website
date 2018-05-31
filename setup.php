@@ -32,8 +32,13 @@ task('setup', [
     'setup:git',
     'setup:wpcli',
     'setup:symlink_db',
+    'setup:npm',
     'setup:finish',
 ]);
+
+task('setup:npm', function () {
+    \Deployer\write('<info>' . runLocally('npm i') . '</info>');
+});
 
 task('setup:symlink_db', function () {
     $dbDropin = __DIR__ . '/web/assets/db.php';
