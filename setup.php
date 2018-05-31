@@ -31,8 +31,37 @@ task('setup', [
     'setup:config',
     'setup:git',
     'setup:wpcli',
+    'setup:symlink_db',
     'setup:finish',
 ]);
+
+task('setup:symlink_db', function () {
+    $dbDropin = __DIR__ . '/web/assets/db.php';
+    if ( ! is_link($dbDropin)) {
+        symlink(__DIR__ . '/web/plugins/sqlite-integration/db.php', $dbDropin);
+
+        return;
+    }
+
+    chdir(__DIR__ . '/web/assets/');
+    if (file_exists(readlink($dbDropin))) {
+        return;
+    }
+
+    if (symlink(__DIR__ . '/web/plugins/sqlite-integration/db.php', $dbDropin)) {
+        return;
+    }
+
+    if ( ! unlink($dbDropin)) {
+        writeln(sprintf('<error>Please remove the %s manually and run `%s` again.</error>', $dbDropin, '/usr/bin/env php ./vendor/bin/dep --file=setup.php setup:symlink_db'));
+        exit;
+    }
+
+    if (symlink(__DIR__ . '/web/plugins/sqlite-integration/db.php', $dbDropin)) {
+        writeln('<error>I could not create the Database dropin. Please run the following command manually</error>');
+        writeln('<info>ln -fs $(pwd)/web/plugins/sqlite-integration/db.php ./web/assets/</info>');
+    }
+});
 
 task('setup:finish', function () {
     if (askConfirmation('Do you want to run the local server now?', true)) {
@@ -66,7 +95,7 @@ task('setup:config', function () {
         }
         $overrideEnv = askConfirmation('<comment>Do you want to override your existing env.json?</comment>', false);
         if ( ! $overrideEnv) {
-            die();
+            return;
         }
     }
 
