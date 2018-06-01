@@ -6,11 +6,13 @@ module.exports = function (grunt) {
             path: {
                 src: {
                     scss: 'assets/scss',
-                    js: 'assets/js'
+                    js: 'assets/js',
+                    img: 'assets/img'
                 },
                 dest: {
                     css: 'web/assets/css',
-                    js: 'web/assets/js'
+                    js: 'web/assets/js',
+                    img: 'web/assets/img',
                 },
                 tmp: 'assets/tmp'
             },
@@ -30,7 +32,15 @@ module.exports = function (grunt) {
                 noJquery: {
                     '<%= path.dest.js %>/webfontloader.min.js': '<%= path.src.js %>/webfonts.js'
                 },
-                copy: {}
+                copy: [
+                    {
+                        expand: true,
+                        cwd: '<%= path.src.img %>',
+                        src: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg'],
+                        dest: '<%= path.dest.img %>',
+                        flatten: true,
+                    }
+                ]
             }
         }
     });

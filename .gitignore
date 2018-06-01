@@ -43,6 +43,7 @@ php-server.ini
 # ignore compiled assets
 /web/assets/js/
 /web/assets/css/
+/web/assets/img/
 
 # ignore compile tmp folder
 /assets/tmp
