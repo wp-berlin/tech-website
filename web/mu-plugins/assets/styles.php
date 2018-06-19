@@ -14,8 +14,16 @@ $styles->add(
 $styles->add(
     (new Style('front'))
         ->deps(['app'])
-        ->condition(function () {
+        ->condition(function() {
             return is_front_page();
+        })
+);
+
+$styles->add(
+    (new Style('adminbar'))
+        ->deps(['app'])
+        ->condition(function() {
+            return is_admin_bar_showing();
         })
 );
 

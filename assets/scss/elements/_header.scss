@@ -91,3 +91,21 @@
     }
 }
 
+.js {
+
+    // Header-related content styles.
+    .markdown-body {
+
+        // Additional padding for hash tag links (anchors).
+        h2, h3, h4, h5, h6 {
+            &:before {
+                display: block;
+                content: "";
+                margin-top: -245px;
+                height: 245px;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+    }
+}
