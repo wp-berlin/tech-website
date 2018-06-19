@@ -60,7 +60,7 @@ if ( ! is_admin()) {
      * To remove the Readme and show all posts
      */
     add_filter('pre_get_posts', function (\WP_Query $query) : \WP_Query {
-        if ( ! $query->is_main_query() && ! $query->is_post_type_archive('ghcp')) {
+        if ( ! ($query->is_main_query() && $query->is_post_type_archive('ghcp'))) {
             return $query;
         }
 
