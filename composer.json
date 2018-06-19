@@ -9,10 +9,13 @@
     },
     {
       "type": "vcs",
-      "url":  "git@github.com:alpipego/wp-sqlite-integration.git"
+      "url": "git@github.com:alpipego/wp-sqlite-integration.git"
     }
   ],
   "autoload": {
+    "psr-4": {
+      "WpBerlin\\Website\\Theme\\Controller\\": "web/assets/themes/wp-berlin/controller"
+    }
   },
   "require": {
     "johnpbloch/wordpress-core": "^4.9",
