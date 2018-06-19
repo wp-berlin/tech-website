@@ -1,0 +1,14 @@
+.js {
+
+  // Adminbar-related content styles.
+  .markdown-body {
+
+    // Additional padding for hash tag links (anchors).
+    h2, h3, h4, h5, h6 {
+      &:before {
+        margin-top: calc(-245px - 32px);
+        height: calc(245px + 32px);
+      }
+    }
+  }
+}
