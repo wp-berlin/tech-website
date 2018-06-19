@@ -1,1 +1,15 @@
+.meeting-minutes {
+    &-single {
+        margin-bottom: config('spacing', 'large');
 
+        &-meta {
+            > span {
+                padding-right: config('spacing', 'small');
+            }
+
+            .dashicons {
+                color: rgba(config('colors', 'base', 'wp'), .8);
+            }
+        }
+    }
+}

@@ -5,8 +5,18 @@
     }
 }
 
-.sidebar {
-    &-author {
+.dashicons {
+    color: rgba(config('colors', 'base', 'wp'), .8);
+}
+
+.meeting-minutes-single-meta {
+    &-location,
+    &-date,
+    &-time {
+        display: block;
+    }
+
+    &-authors {
         &-single {
             align-items: center;
             display: flex;
