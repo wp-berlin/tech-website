@@ -6,21 +6,30 @@
  * Time: 18:19
  */
 
-$readme = get_page_by_path('readme', OBJECT, 'ghcp');
-$query  = new WP_Query([
-    'post_type'      => 'ghcp',
-    'posts_per_page' => -1,
-    'post__not_in'   => [$readme->ID],
-]);
 get_header();
 
-while ($query->have_posts()) :
-    $query->the_post();
+while (have_posts()) :
+    the_post();
+
+    $meta = array_map(function (array $values) {
+        return maybe_unserialize($values[0]);
+    }, get_post_meta(get_the_ID()));
     ?>
     <div class="meeting-minutes-single">
         <a href="<?= get_the_permalink(); ?>">
-            <h1><?= get_the_title(); ?></h1>
+            <h2 class="meeting-minutes-single-title">
+                <?= $meta['title'] ?? get_the_title(); ?>
+            </h2>
         </a>
+        <div class="meeting-minutes-single-meta">
+            <?php include locate_template(['partials/meeting-minutes/location.php']); ?>
+            <?php include locate_template(['partials/meeting-minutes/date-time.php']); ?>
+        </div>
+        <?php if ( ! empty($meta['description'])) : ?>
+            <p class="meeting-minutes-single-description">
+                <?= $meta['description']; ?>
+            </p>
+        <?php endif; ?>
     </div>
 <?php
 endwhile;

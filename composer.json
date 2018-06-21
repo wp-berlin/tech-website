@@ -9,10 +9,13 @@
     },
     {
       "type": "vcs",
-      "url":  "git@github.com:alpipego/wp-sqlite-integration.git"
+      "url": "git@github.com:alpipego/wp-sqlite-integration.git"
     }
   ],
   "autoload": {
+    "psr-4": {
+      "WpBerlin\\Website\\Theme\\Controller\\": "web/assets/themes/wp-berlin/controller"
+    }
   },
   "require": {
     "johnpbloch/wordpress-core": "^4.9",
@@ -27,7 +30,7 @@
     "symfony/cache": "^4.0",
     "predis/predis": "^1.1",
     "alpipego/awp-assets": "^0.3.0",
-    "alpipego/ghcp": "^0.2",
+    "alpipego/ghcp": "^0.3",
     "alpipego/awp-cache": "^0.1.0",
     "alpipego/sqlite-integration": "dev-master",
     "wpackagist-plugin/disable-emojis": "^1.7",

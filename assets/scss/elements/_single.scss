@@ -6,10 +6,12 @@
 
     .single {
         &-main {
-            flex: 0 0 calc(75% - #{config('spacing', 'small')});
+            flex: 0 0 calc(75% - #{config('spacing', 'medium')});
+            max-width: calc(75% - #{config('spacing', 'medium')});
         }
         &-sidebar {
-            flex: 0 0 calc(25% - #{config('spacing', 'small')});
+            flex: 1 0 calc(25% - #{config('spacing', 'medium')});
+            max-width: calc(25% - #{config('spacing', 'medium')});
         }
     }
 }

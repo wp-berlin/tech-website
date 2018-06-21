@@ -58,7 +58,7 @@ $styles->add(
 
 $styles->add(
     (new Style('archive'))
-        ->deps(['app'])
+        ->deps(['app', 'dashicons'])
         ->condition(function() {
             return is_archive();
         })
@@ -66,7 +66,7 @@ $styles->add(
 
 $styles->add(
     (new Style('single-minutes'))
-    ->deps(['app', 'single', 'github'])
+    ->deps(['app', 'single', 'github', 'dashicons'])
     ->condition(function() {
         return is_singular('ghcp');
     })
