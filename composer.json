@@ -14,6 +14,7 @@
   ],
   "autoload": {
     "psr-4": {
+      "WpBerlin\\MeetupApi\\": "web/plugins/meetup-api/src",
       "WpBerlin\\Website\\Theme\\Controller\\": "web/assets/themes/wp-berlin/controller"
     }
   },
@@ -36,7 +37,8 @@
     "wpackagist-plugin/disable-emojis": "^1.7",
     "wp-cli/wp-cli": "^1.5",
     "gordalina/cachetool": "^3.0",
-    "php": "^7.1"
+    "php": "^7.1",
+    "markjaquith/wp-tlc-transients": "^1.0"
   },
   "require-dev": {
     "deployer/recipes": "^6.0",

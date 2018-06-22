@@ -21,49 +21,26 @@ namespace WpBerlin\MeetupApi;
 use DateInterval;
 use DateTime;
 use DateTimeZone;
-use Requests;
 
-$apiKey   = apply_filters('wpberlin/meetup/api_key', '');
-$eventIds = (array)apply_filters('wpberlin/meetup/events', []);
+$provider = new Provider(
+    apply_filters('wpberlin/meetup/api_key', ''),
+    apply_filters('wpberlin/meetup/organizers', [])
+);
+$provider = new CachedProvider($provider);
 
-if (empty($apiKey)) {
-    return;
-}
-
-$baseUrl = 'https://api.meetup.com/';
-$group   = 'Berlin-WordPress-Meetup';
-
-foreach ($eventIds as $eventId) {
-    $events = add_query_arg([
-        'sign'       => 'true',
-        'photo-host' => 'public',
-        'key'        => $apiKey,
-    ], $baseUrl . $group . '/events/' . $eventId);
-
-    // cache requests
-    $cacheKey = 'meetup_' . md5($events);
-    $req      = get_transient($cacheKey);
-    if ( ! $req) {
-        $req = Requests::get($events);
-        set_transient($cacheKey, $req, 300);
-    }
-    if ($req->status_code !== 200) {
+foreach ($provider->getValidEvents() as $event) {
+    if (empty($event)) {
         continue;
     }
-    $body = json_decode($req->body);
-    if ($body->status !== 'upcoming' || $body->visibility !== 'public') {
-        continue;
-    }
-
-    add_action('wpberlin/website/front_page', function () use ($body) {
-        $dateObj = DateTime::createFromFormat('U', substr($body->time, 0, -3));
+    add_action('wpberlin/website/front_page', function () use ($event) {
+        $dateObj = DateTime::createFromFormat('U', substr($event['time'], 0, -3));
         $dateObj->setTimeZone(new DateTimeZone('Europe/Berlin'));
-        $int = new DateInterval(sprintf('PT%dS', substr($body->duration, 0, -3)));
+        $int = new DateInterval(sprintf('PT%dS', substr($event['duration'], 0, -3)));
         ?>
         <div class="single-event">
-            <h2 class="single-event-title"><?= $body->name; ?></h2>
+            <h2 class="single-event-title"><?= $event['name']; ?></h2>
             <div class="single-event-content single-main">
-                <?= $body->description; ?>
+                <?= $event['description']; ?>
             </div>
             <div class="single-event-sidebar single-sidebar">
                 <div class="single-event-date">
@@ -73,15 +50,15 @@ foreach ($eventIds as $eventId) {
                     </div>
                 </div>
                 <div class="single-event-location">
-                    <h3><?= $body->venue->name; ?></h3>
+                    <h3><?= $event['venue']['name']; ?></h3>
                     <div class="single-event-location-address">
-                        <?= $body->venue->address_1; ?> &middot; <?= $body->venue->city; ?>
-                        <?php if (property_exists($body, 'how_to_find_us')) : ?>
-                            <p><?= $body->how_to_find_us; ?></p>
+                        <?= $event['venue']['address_1']; ?> &middot; <?= $event['venue']['city']; ?>
+                        <?php if (array_key_exists('how_to_find_us', $event)) : ?>
+                            <p><?= $event['how_to_find_us']; ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
-                <a href="<?= $body->link; ?>" class="single-event-link">Join on Meetup.com</a>
+                <a href="<?= $event['link']; ?>" class="single-event-link">Join on Meetup.com</a>
             </div>
         </div>
         <?php
