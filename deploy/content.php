@@ -9,7 +9,7 @@
 namespace WpBerlin\Deploy;
 
 use function Deployer\{
-    askConfirmation, run, runLocally, task, write, writeln
+    askConfirmation, runLocally, task, write, writeln
 };
 
 require_once __DIR__ . '/database.php';
@@ -56,10 +56,11 @@ task('content:update', function () use ($database) {
             return '';
         }, $request->body, 1);
 
-        $query = sprintf('SELECT ID FROM berlin_posts WHERE post_name = "%s" and post_type = "page"', $path['filename']);
+        $query = sprintf('SELECT ID FROM berlin_posts WHERE post_name = "%s" and post_type = "page" and post_status="publish"', $path['filename']);
         $id    = runLocally("sqlite3 database/wp.sqlite '${query}'");
-        $cmd   = empty($id) ? 'wp post create' : sprintf('wp post update %d', $id);
-        $cmd   .= sprintf(' --post_title="%s" --post_content=%s --post_name="%s"', $title, escapeshellarg($content), $path['filename']);
+        $cmd   = './vendor/bin/wp post ';
+        $cmd   .= empty($id) ? 'create' : sprintf('update %d', $id);
+        $cmd   .= sprintf(' --post_title="%s" --post_content=%s --post_name="%s"', $title, escapeshellarg(trim(preg_replace('/\v/', ' ', $content))), $path['filename']);
         $cmd   .= ' --post_status=publish --post_type=page';
 
         writeln(sprintf('<info>%s</info>', runLocally($cmd)));
@@ -78,11 +79,12 @@ task('content:update', function () use ($database) {
     }
 });
 
-function databaseCleanup() {
+function databaseCleanup()
+{
     $config = require __DIR__ . '/../config.php';
     try {
-        $db = new \PDO('sqlite:database/wp.sqlite');
-        $queries = [];
+        $db        = new \PDO('sqlite:database/wp.sqlite');
+        $queries   = [];
         $queries[] = sprintf(
             'DELETE FROM %soptions WHERE option_name LIKE "_transient_%%" OR option_name LIKE "_site_transient_%%";',
             $config->get('connection.wp.tablePrefix')
