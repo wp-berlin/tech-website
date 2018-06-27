@@ -96,6 +96,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 define( 'WP_MAX_MEMORY_LIMIT', $conf->get( 'memory' ) );
 define( 'WP_MEMORY_LIMIT', $conf->get( 'memory' ) );
 define( 'DISABLE_WP_CRON', false );
+define( 'WP_POST_REVISIONS', false );
 
 /**
  * Environment Constants
