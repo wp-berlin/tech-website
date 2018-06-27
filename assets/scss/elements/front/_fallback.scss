@@ -1,0 +1,9 @@
+.frontpage-fallback-minutes {
+    max-width: 100%;
+    width: 800px;
+
+    @include media(config('media', 'breakpoints', 'default') + config('media', 'breakpoints', 'default') * .5) {
+        transform: translateX(50%);
+        margin-left: -25%;
+    }
+}
