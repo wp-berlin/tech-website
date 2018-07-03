@@ -38,6 +38,9 @@
     "open": true,
     "notify": true
   },
+  "meetup": {
+    "api_key": ""
+  },
   "url": "",
   "network": "",
   "memory": "512M"
