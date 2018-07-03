@@ -42,6 +42,7 @@ class Provider implements ProviderInterface
         return json_decode(wp_remote_retrieve_body(wp_remote_get(add_query_arg([
                 'sign'       => 'true',
                 'photo-host' => 'public',
+                'status'     => 'upcoming',
             ], self::BASE_URL . self::GROUP . '/events'))), true) ?? [];
     }
 
