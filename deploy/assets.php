@@ -16,6 +16,7 @@ task('assets:upload', function () {
     $options = php_uname('s') === 'Darwin' ? ['--iconv' => 'utf-8-mac,utf-8'] : [];
     upload('web/assets/css', '{{release_path}}/web/assets', $options);
     upload('web/assets/js', '{{release_path}}/web/assets', $options);
+    upload('web/assets/img', '{{release_path}}/web/assets', $options);
 });
 
 task('deploy:assets', ['assets:compile', 'assets:upload']);

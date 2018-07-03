@@ -27,7 +27,7 @@ host('151.252.51.213')
     ->multiplexing(true)
     ->set('deploy_path', '/var/www/wp-berlin/production')
     ->set('composer_action', 'install')
-    ->set('composer_options', '-o --no-dev --no-interaction');
+    ->set('composer_options', '-o --classmap-authoritative --no-dev --no-interaction');
 
 task('reload_services', function () {
     run('sudo service nginx reload');
@@ -67,4 +67,3 @@ task('deploy', [
 ]);
 
 after('deploy', 'success');
-before('deploy', 'content:update');
