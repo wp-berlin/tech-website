@@ -71,9 +71,6 @@
 
         .js & {
             position: fixed;
-            &:hover {
-                cursor: pointer;
-            }
         }
 
         @include media(config('media', 'breakpoints', 'nav', 'inline')) {

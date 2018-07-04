@@ -25,7 +25,6 @@ module.exports = function (grunt) {
                         '<%= path.src.js %>/_parallax.js',
                     ],
                     '<%= path.dest.js %>/app.min.js': [
-                        '<%= path.src.js %>/_home-link.js',
                         '<%= path.src.js %>/_nav.js',
                     ]
                 },
